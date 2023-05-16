@@ -13,5 +13,5 @@ export const fetchResponse = async (chat) => {
         return data 
     } catch (error) {
         console.log(error)
-    }y
+    }
 } 
