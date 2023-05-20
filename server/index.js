@@ -14,7 +14,7 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 // listening
-app.listen("3080", () => console.log("listening to the port 3080"))
+app.listen("3010", () => console.log("listening to the port 3010"))
 // Dummy routes to test
 app.get("/", (req,res) => {
     res.send("Hello World")
@@ -29,9 +29,9 @@ app.post('/', async (req,res) => {
             max_tokens:100,
             temperature:.5
         })
-        res.join({message: response.data.choices[0].text})
+        res.json({message: response.data.choices[0].text})
     } catch (err) {
         console.log(err)
-        res.send(err).status(400)
+        res.status(400).send(err.message)
     }
 })
